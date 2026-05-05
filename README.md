@@ -75,6 +75,6 @@ A continuación se presenta la arquitectura lógica del sistema, detallando las 
 
 ## Modelo Relacional 
 A continuación, se detalla el esquema lógico con llaves foráneas y cardinalidades finales, diseñado para garantizar la integridad referencial en PostgreSQL.
-![Modelo Relacional](./diagramas/esquema_BD_Kwik-E-Mart.drawio.png)
+![Modelo Relacional](./diagramas/esquema_BD_Kwik-E-Mart.png)
 ---
 *Proyecto desarrollado para la materia de Base de Datos II.*
