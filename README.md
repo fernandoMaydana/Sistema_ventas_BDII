@@ -76,5 +76,44 @@ A continuación se presenta la arquitectura lógica del sistema, detallando las 
 ## Modelo Relacional 
 A continuación, se detalla el esquema lógico con llaves foráneas y cardinalidades finales, diseñado para garantizar la integridad referencial en PostgreSQL.
 ![Modelo Relacional](./diagramas/esquema_BD_Kwik-E-Mart.png)
+
+---
+
+## 🚀 Estado Actual y Avances
+
+El proyecto se encuentra en una fase de desarrollo activo. Hasta el momento se han consolidado los cimientos técnicos del sistema:
+
+*   **Arquitectura y Entorno:**
+    *   Estructuración del proyecto basándose en el patrón **MVC (Modelo-Vista-Controlador)**.
+    *   Implementación de conexión segura a la base de datos PostgreSQL utilizando **PHP PDO**.
+*   **Base de Datos:**
+    *   Creación del esquema relacional (DDL) con todas sus tablas, restricciones (CHECKS) y llaves foráneas.
+*   **Módulos Funcionales:**
+    *   ✅ **Categorías:** Módulo inicial de lectura completado (Conexión exitosa y visualización de registros desde la base de datos).
+
+    > Vista previa del módulo funcional:
+    > ![Prueba registros](./diagramas/prueba_registros.png)
+
+---
+
+## 📁 Estructura del Proyecto
+
+La arquitectura del código se organizó utilizando el patrón **MVC (Modelo-Vista-Controlador)** clásico, separando claramente las responsabilidades del sistema:
+
+```text
+SISTEMA_VENTA/
+├── config/           # Configuración (Conexión PDO a PostgreSQL)
+├── controllers/      # Controladores (Lógica de negocio e intermediarios)
+├── models/           # Modelos (Consultas e interacción con la BD)
+├── views/            # Vistas (Interfaces de usuario - HTML/PHP)
+├── public/           # Archivos estáticos públicos (CSS, JS, Imágenes)
+├── scripts_sql/      # Scripts DDL y DML para la creación de la BD
+├── diagramas/        # Recursos gráficos (DER, Modelo Relacional)
+├── documentacion/    # Documentación auxiliar del sistema
+├── debug_db.php      # Script temporal para pruebas y depuración
+├── index.php         # Punto de entrada principal de la aplicación
+└── README.md         # Documentación principal y bitácora
+```
+
 ---
 *Proyecto desarrollado para la materia de Base de Datos II.*
