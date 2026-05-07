@@ -79,24 +79,23 @@ A continuación, se detalla el esquema lógico con llaves foráneas y cardinalid
 
 ---
 
-## 🚀 Estado Actual y Avances
+## Estado Actual y Avances
 
-El proyecto se encuentra en una fase de desarrollo activo. Hasta el momento se han consolidado los cimientos técnicos del sistema:
+El proyecto se encuentra en una fase de desarrollo avanzado de los módulos base. Se han consolidado los siguientes pilares:
 
 *   **Arquitectura y Entorno:**
-    *   Estructuración del proyecto basándose en el patrón **MVC (Modelo-Vista-Controlador)**.
-    *   Implementación de conexión segura a la base de datos PostgreSQL utilizando **PHP PDO**.
-*   **Base de Datos:**
-    *   Creación del esquema relacional (DDL) con todas sus tablas, restricciones (CHECKS) y llaves foráneas.
+    *   **MVC Realizado:** Implementación completa del patrón **Modelo-Vista-Controlador**.
+    *   **Front Controller:** `index.php` actúa como enrutador central de peticiones.
+    *   **Layout Dinámico:** Sistema de plantillas con Bootstrap 5 para una interfaz coherente.
+*   **Base de Datos (PostgreSQL):**
+    *   **Vistas de BD:** Implementación de `vista_productos_detallados` para optimizar consultas con Joins desde el motor de base de datos.
 *   **Módulos Funcionales:**
-    *   ✅ **Categorías:** Módulo inicial de lectura completado (Conexión exitosa y visualización de registros desde la base de datos).
-
-    > Vista previa del módulo funcional:
-    > ![Prueba registros](./diagramas/prueba_registros.png)
+    *   **Categorías:** CRUD completo (Crear, Leer, Actualizar, Eliminar).
+    *   **Productos:** CRUD completo integrado con categorías y validación de stock mediante badges visuales.
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 La arquitectura del código se organizó utilizando el patrón **MVC (Modelo-Vista-Controlador)** clásico, separando claramente las responsabilidades del sistema:
 
@@ -107,7 +106,9 @@ SISTEMA_VENTA/
 ├── models/           # Modelos (Consultas e interacción con la BD)
 ├── views/            # Vistas (Interfaces de usuario - HTML/PHP)
 ├── public/           # Archivos estáticos públicos (CSS, JS, Imágenes)
-├── scripts_sql/      # Scripts DDL y DML para la creación de la BD
+├── scripts_sql/      # Scripts DDL, DML y Vistas para la BD
+│   ├── Script DDL__Kwik-E-Mart.sql
+│   └── vistas.sql    # Definición de Vistas de base de datos
 ├── diagramas/        # Recursos gráficos (DER, Modelo Relacional)
 ├── documentacion/    # Documentación auxiliar del sistema
 ├── debug_db.php      # Script temporal para pruebas y depuración

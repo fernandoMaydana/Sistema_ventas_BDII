@@ -1,44 +1,46 @@
 <?php
 require_once 'config/database.php';
-require_once 'models/Categoria.php';
+require_once 'controllers/CategoriaController.php';
+require_once 'controllers/ProductoController.php';
 
+// Inicializar conexión a la base de datos
 $database = new Database();
 $db = $database->getConnection();
-$categoria = new Categoria($db);
-$stmt = $categoria->listar();
-?>
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>SISTEM VENTA - Kwik-E-Mart</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-    <div class="container mt-5">
-        <div class="card shadow">
-            <div class="card-header bg-warning text-dark">
-                <h2>Gestión Kwik-E-Mart</h2>
-            </div>
-            <div class="card-body">
-                <h4>Listado de Categorías</h4>
-                <table class="table table-striped">
-                    <thead>
-                        <tr><th>ID</th><th>Nombre</th><th>Descripción</th></tr>
-                    </thead>
-                    <tbody>
-                        <?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)): ?>
-                            <tr>
-                                <td><?php echo $row['id_categoria']; ?></td>
-                                <td><?php echo $row['nombre']; ?></td>
-                                <td><?php echo $row['descripcion']; ?></td>
-                            </tr>
-                        <?php endwhile; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+// Obtener el controlador y la acción de la URL (por defecto: categoria e index)
+$controller = isset($_GET['controller']) ? $_GET['controller'] : 'categoria';
+$action = isset($_GET['action']) ? $_GET['action'] : 'index';
+
+// Enrutador básico
+if ($controller == 'categoria') {
+    $categoriaController = new CategoriaController($db);
+    
+    if ($action == 'index') {
+        $categoriaController->index();
+    } elseif ($action == 'create') {
+        $categoriaController->create();
+    } elseif ($action == 'edit') {
+        $categoriaController->edit();
+    } elseif ($action == 'delete') {
+        $categoriaController->delete();
+    } else {
+        echo "Acción no encontrada.";
+    }
+} elseif ($controller == 'producto') {
+    $productoController = new ProductoController($db);
+
+    if ($action == 'index') {
+        $productoController->index();
+    } elseif ($action == 'create') {
+        $productoController->create();
+    } elseif ($action == 'edit') {
+        $productoController->edit();
+    } elseif ($action == 'delete') {
+        $productoController->delete();
+    } else {
+        echo "Acción no encontrada.";
+    }
+} else {
+    echo "Controlador no encontrado.";
+}
+?>
