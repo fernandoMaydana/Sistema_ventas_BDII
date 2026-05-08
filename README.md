@@ -165,3 +165,5 @@ Sigue estos pasos para hacer funcionar el proyecto en tu máquina:
 
 ---
 *Proyecto desarrollado para la materia de Base de Datos II.*
+*Link del repositorio*
+https://github.com/fernandoMaydana/Sistema_ventas_BDII.git
