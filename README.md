@@ -1,6 +1,6 @@
 # 🏪 Minimarket Kwik-E-Mart - Sistema de Ventas
 > **Proyecto Académico:** Base de Datos II  
-> **Estado:** En Desarrollo 
+> **Estado:** Finalizado ✅✅
 
 ---
 
@@ -8,6 +8,16 @@
 El sistema de venta para el **Kwik-E-Mart** es una solución diseñada para la gestión operativa de un minimarket de alta rotación. El objetivo principal es garantizar la **consistencia de los datos** en un entorno transaccional, permitiendo un control preciso del flujo de ventas y la integridad referencial de la información.
 
 A diferencia de sistemas administrativos complejos, este proyecto se enfoca específicamente en la eficiencia del **punto de venta (POS)**, optimizando la interacción entre el catálogo de productos y el registro final de transacciones.
+
+## Funcionalidades Conseguidas
+* **Seguridad Global:** Sistema protegido por un login genérico, restringiendo el acceso no autorizado.
+* **Módulo de Punto de Venta (POS):** Pantalla interactiva con carrito de compras, cálculo de subtotales y validación de stock en tiempo real.
+* **Gestión de Inventario (CRUD):** Administración completa de Categorías y Productos, previniendo la venta de artículos agotados.
+* **Gestión de Clientes (CRUD):** Registro, edición y eliminación de clientes para vincularlos a las facturas.
+* **Integridad Transaccional:** Uso de transacciones SQL (`COMMIT`, `ROLLBACK`) para garantizar que el registro de ventas y el descuento de stock ocurran de forma atómica y segura.
+
+## Conclusión
+El proyecto ha cumplido exitosamente su objetivo académico, logrando demostrar la importancia de una arquitectura de base de datos robusta acoplada a un patrón de diseño MVC. Se ha logrado implementar un flujo de ventas seguro y consistente, previniendo fallos de inventario y manteniendo un código escalable mediante el uso de vistas y relaciones estructuradas en PostgreSQL.
 
 ## Especificaciones Técnicas y Alcance
 * **Motor de Base de Datos:** Se utiliza **PostgreSQL**, aprovechando su capacidad para manejar transacciones ACID y asegurar la fiabilidad de los datos financieros.
@@ -115,6 +125,43 @@ SISTEMA_VENTA/
 ├── index.php         # Punto de entrada principal de la aplicación
 └── README.md         # Documentación principal y bitácora
 ```
+
+## Tecnologías Utilizadas
+* **Backend:** PHP 8+ (Arquitectura MVC sin frameworks).
+* **Base de Datos:** PostgreSQL (Uso de Transacciones, Vistas, Triggers y Procedimientos Almacenados).
+* **Frontend:** HTML5, Vanilla JavaScript (para la lógica del carrito POS) y Bootstrap 5 (CDN).
+* **Servidor Web:** Apache (XAMPP).
+
+---
+
+## Guía de Instalación y Despliegue Local
+
+Sigue estos pasos para hacer funcionar el proyecto en tu máquina:
+
+1. **Requisitos Previos:**
+   - Instalar [XAMPP](https://www.apachefriends.org/es/index.html) para el servidor Apache y PHP.
+   - Instalar [PostgreSQL](https://www.postgresql.org/download/) y [pgAdmin](https://www.pgadmin.org/).
+
+2. **Descargar el Proyecto:**
+   - Clona este repositorio o descarga el código en formato ZIP.
+   - Extrae la carpeta completa dentro del directorio `htdocs` de tu instalación de XAMPP (usualmente en `C:\xampp\htdocs\SISTEMA_VENTA`).
+
+3. **Preparar la Base de Datos:**
+   - Abre pgAdmin y crea una nueva base de datos con el nombre: `kwik-E-mart`
+   - Abre el script `scripts_sql/Script DDL__Kwik-E-Mart.sql` y ejecútalo para generar todas las tablas.
+   - Ejecuta el script `scripts_sql/vistas.sql` para cargar las funciones avanzadas de la base de datos.
+   - Por último, ejecuta `scripts_sql/datos_iniciales.sql` para sembrar los datos de prueba (Categorías, Productos, Clientes y la Sucursal/Cajero por defecto requeridos para vender).
+
+4. **Conectar el Sistema:**
+   - Abre el archivo `config/database.php` con tu editor de texto.
+   - Verifica que el nombre de usuario (`user`) y la contraseña (`password`) coincidan con los de tu instalación local de PostgreSQL.
+
+5. **Arrancar el Sistema:**
+   - Abre el Panel de Control de XAMPP y presiona **Start** en el módulo de Apache.
+   - Entra a tu navegador web y visita: `http://localhost/SISTEMA_VENTA/`
+   - **Acceso al sistema:** Utiliza las credenciales genéricas establecidas para pruebas:
+     - **Usuario:** `admin`
+     - **Contraseña:** `admin123`
 
 ---
 *Proyecto desarrollado para la materia de Base de Datos II.*
