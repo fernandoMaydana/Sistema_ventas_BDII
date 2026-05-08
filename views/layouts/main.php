@@ -15,14 +15,26 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?controller=categoria&action=index">Categorías</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?controller=producto&action=index">Productos</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php?controller=cliente&action=index">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold text-success" href="index.php?controller=venta&action=create">POS / Ventas</a>
+                    </li>
                 </ul>
+                <?php if(isset($_SESSION['user'])): ?>
+                <div class="d-flex align-items-center">
+                    <span class="text-light me-3 small">👤 <?php echo htmlspecialchars($_SESSION['user']); ?></span>
+                    <a href="index.php?controller=auth&action=logout" class="btn btn-outline-danger btn-sm shadow-sm">Cerrar Sesión</a>
+                </div>
+                <?php endif; ?>
             </div>
         </div>
     </nav>

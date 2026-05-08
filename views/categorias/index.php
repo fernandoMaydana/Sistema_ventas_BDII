@@ -1,7 +1,6 @@
 <div class="card shadow">
     <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
         <h2 class="mb-0">Gestión de Categorías</h2>
-        <!-- Botón para futura creación -->
         <a href="index.php?controller=categoria&action=create" class="btn btn-dark btn-sm">Nueva Categoría</a>
     </div>
     <div class="card-body">
